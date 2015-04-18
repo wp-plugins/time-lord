@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Shortcode, Time, schedule
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 
 Make modifications on your content based on time parameters. Show or hide part of a post at a given point in the future, calculate age and more.
@@ -17,16 +17,19 @@ You can use it in posts, pages or any other content type via the <code>[timelord
 
 * <code>[timelord from="2016-01"]SOME CONTENT[/timelord]</code> would output "SOME CONTENT" only when January 2016 comes. 
 * <code>[timelord to="2016-01"]SOME CONTENT[/timelord]</code> would output "SOME CONTENT" until January 2016 and then it would remove it. 
+* <code>[timelord from="2015-04-01" to="2016-04-01" every="1 day"]SOME CONTENT[/timelord]</code> would output "SOME CONTENT" every other day until April 2016. 
 * <code>[timelord to="2014-01" del="yes"]SOME CONTENT[/timelord]</code> would output <code><del>SOME CONTENT</del></code> (check screenshot for an example of what the user would actually see in the frontend). 
 * <code>[timelord from="2015-01" to="2016-01"]SOME CONTENT[/timelord]</code> would output "SOME CONTENT" from January 2015 to January 2016.
 * <code>[timelord mode="hide" from="2015-01" to="2016-01"]SOME CONTENT[/timelord]</code> would output "SOME CONTENT" every other time except from January 2015 to January 2016.
 * <code>[timelord year="1980"]</code> would output "35".
 * <code>[timelord year="1980" ordinal="yes"]</code> would output "35th".
 
+[View the demo](http://demos.gsarigiannidis.gr/time-lord/ "Time Lord Demo")
 
 = Features =
 
 * Allows you to show or hide content at a given timeframe.
+* Supports recurring display of the output at given intervals (e.g. every hour, every day, every month etc.).
 * Allows you to wrap your content in the <code><del></del></code> tag instead of removing it when expires. 
 * It can display an alternate message when the actual content is not supposed to be shown. 
 * It can output the time remaining until the content will be up or down. 
@@ -48,6 +51,7 @@ Shortcode parameters include the following:
 * <strong>mode</strong>. It is used to determine whether the wrapped content will be shown or hidden at the given timeframe. By default it is set to "show". The other parameter you can give is "hide". 
 * <strong>from</strong>. The date your content should start appearing. It accepts time values of the form "YYYY-MM-DD hh:mm:ss" (for example: <code>[timelord from="2016-4-1 20:10:00"]SOME CONTENT[/timelord]</code> will show the text "SOME CONTENT" on April 1st of 2016 at 20:10). If you don't care about so much specificity, you can omit values from right to left. For example, you could just add from="2016-04" if you want to show your content as soon as April 2016 comes. 
 * <strong>to</strong>. Same as the "from" parameter, "to" allows you to hide content at a specific time in the future. The same rules described at the "from" parameters apply here as well. 
+* <strong>every</strong>. Output content recursively at specified intervals. It works best if a "from" and "to" dates are set. For example,  <code>[timelord from="2015-04-01" to="2016-04-01" every="1 day"]SOME CONTENT[/timelord]</code> would output "SOME CONTENT" every other day until April 1st. This parameter can accept a date with relative parts like for example every="12 hours", every="2 days", every="1 hour" etc. ([See examples](http://php.net/manual/en/datetime.formats.relative.php "PHP Relative Formats")). NOTE: the "every" parameter cannot be combined with the other parameters that follow - it will just show or hide the content depending on the given interval. 
 * <strong>del</strong>. Instead of just removing the content when it expires, this parameter wraps it in the <code><del></del></code> tag in order to mark it as "erased". For example, <code>[timelord to="2016-4-1" del="yes"]SOME CONTENT[/timelord]</code> would output <code><del>SOME CONTENT</del></code> (check screenshot for an example of what the user would actually see in the frontend).
 * <strong>message</strong>. It displays some alternate content until the set date comes. It accepts some basic HTML formatting.  
 * <strong>from_msg</strong>. If this parameter is set and is not empty AND if the "from" parameter is set, it will show the remaining time until the publication (for example "4 months"). If you add any text in there, it will add this text before the remaining time. For example, given that present is April 2015, <code>[timelord from="2016-04" from_msg="Content will be live in: "]SOME CONTENT[/timelord]</code> would output "Content will be live in 12 months".
@@ -69,10 +73,17 @@ On the other hand <code>[timelord mode="hide" from="2016-04" to="2017-04"]SOME C
 
 == Changelog ==
 
+= 1.1 =
+* NEW FEATURE: Show content recursively at user set intervals.
+* FIX: The plugin now takes into account the timezone set at the WordPress installation.
+
 = 1.0 =
 * First release!
 
 == Upgrade Notice ==
+
+= 1.1 =
+* NEW FEATURE: Show content recursively at user set intervals.
 
 = 1.0 =
 * Initial submittion to the WordPress.org repository
