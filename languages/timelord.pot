@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Time Lord\n"
-"POT-Creation-Date: 2015-04-12 02:42+0200\n"
-"PO-Revision-Date: 2015-04-12 02:43+0200\n"
+"POT-Creation-Date: 2015-04-18 18:28+0200\n"
+"PO-Revision-Date: 2015-04-18 18:28+0200\n"
 "Last-Translator: Giorgos Sarigiannidis <contact@gsarigiannidis.gr>\n"
 "Language-Team: Giorgos Sarigiannidis <contact@gsarigiannidis.gr>\n"
 "Language: en\n"
@@ -19,19 +19,19 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: time-lord.php:67 time-lord.php:71 time-lord.php:72 time-lord.php:73
-#: time-lord.php:74 time-lord.php:75 time-lord.php:76
+#: time-lord.php:101 time-lord.php:105 time-lord.php:106 time-lord.php:107
+#: time-lord.php:108 time-lord.php:109 time-lord.php:110
 msgid "th"
 msgstr ""
 
-#: time-lord.php:68
+#: time-lord.php:102
 msgid "st"
 msgstr ""
 
-#: time-lord.php:69
+#: time-lord.php:103
 msgid "nd"
 msgstr ""
 
-#: time-lord.php:70
+#: time-lord.php:104
 msgid "rd"
 msgstr ""
